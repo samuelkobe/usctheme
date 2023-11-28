@@ -102,11 +102,19 @@
                             <?php if ($local_value == 'zoom') { ?>
                                 <a class="<?php echo $button; ?>" href="<?php the_field( 'zoom_registration_link' ); ?>" target="_blank">Register Now</a>
                             <?php } elseif ($local_value == 'usc') { ?>
-                                <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to register for this event." target="_blank">Register Now</a>
+                                <!-- <a class="<?//php echo $button; ?>" href="" target="_blank">Registration Form</a> -->
                             <?php } elseif ($local_value == 'youtube') { ?>
                                 <a class="button bg-red-600 mt-3 md:mt-6 mb-2" href="<?php the_field( 'youtube_link' ); ?>"  target="_blank">Watch on YouTube</a>
                             <?php } elseif ($local_value == 'booking') { ?>
-                                <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to book my spot for this event." target="_blank">Book Now</a>
+                                <div class="flex flex-col">
+                                <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to book ​​my ​spot with the following ​(READER/MEDIUM) and (TIME)." target="_blank">Book Now</a>                                
+                                    <span class="text-sm lg:w-56 mb-4"><?php the_field( 'booking_request_information' ); ?></span>
+                                </div>
+                            <?php } elseif ($local_value == 'workshop') { ?>
+                                <div class="flex flex-col">
+                                    <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'workshop_classes_registration_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=​I am interested in signing up for your Workshop/Classes." target="_blank">Email Us to Sign Up</a>
+                                    <span class="text-sm lg:w-56 mb-4"><?php the_field( 'workshop_classes_registration' ); ?></span>
+                                </div>
                             <?php } elseif ($local_value == 'tba') { ?>
                                 <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to register for this event." target="_blank">Register Now</a>
                             <?php } else { ?>
@@ -141,17 +149,38 @@
                 <?php if ( have_rows( 'content_row' ) ) : ?>
                     <div class="w-full lg:w-2/3 mt-4 lg:mt-8">
                         <?php while ( have_rows( 'content_row' ) ) : the_row(); ?>
-                            <p class="text-base lg:text-xl text-brand-neutral w-full font-semibold"><?php the_sub_field( 'title' ); ?></p>
+                            <p class="text-base lg:text-xl text-brand-dark w-full font-semibold mt-2 lg:mt-4"><?php the_sub_field( 'title' ); ?></p>
                             <p class="text-sm lg:text-base text-brand-black w-full"><?php the_sub_field( 'content_block' ); ?></p>
                         <?php endwhile; ?>
                     </div>
-                    <?php else : ?>
-                        <?php // No rows found ?>
-                    <?php endif; ?>
+                <?php else : ?>
+                    <?php // No rows found ?>
+                <?php endif; ?>
+
+                <div>
+                    <hr class="mt-8">
+                </div>
+
+                
+                <?php if($past_event == false) : ?>
+                    <?php if($active_event == false) : ?>
+                        <?php if ($local_value == 'usc') { ?>
+                            <div class="flex flex-col pt-4 lg:pt-8 relative">
+                                <div class="-top-28 absolute invisible" id="registration-form-tag"></div>
+                                <div class="flex flex-row w-full">
+                                    <p class="font-semibold text-xl lg:text-2xl text-brand-neutral w-full">Register for: <span class="text-brand-dark"><?php the_title() ; ?></span></p>
+                                </div>
+                                <div class="w-full lg:w-2/3 2xl:w-1/2 my-4 lg:my-8">
+                                    <?php the_field('in_person_form'); ?>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    <?php endif; ?>                       
+                <?php endif; ?>
 
                 <div class="flex flex-col lg:flex-row mt-4 lg:mt-8">
                     <div class="flex flex-row w-full lg:w-2/3 lg:items-end">
-                        <p class="text-base lg:text-xl text-brand-black">Questions? Please email <a href="mailto:usc@wttsw.ca" target="_blank">usc@wttsw.ca</a></p>
+                        <p class="text-base lg:text-xl text-brand-black">Questions? Please email <a href="mailto:usc@wttsw.com" target="_blank">usc@wttsw.com</a></p>
                     </div>
                 </div>
 
@@ -169,7 +198,7 @@
 
                 <div class="w-full lg:mr-1/12 lg:w-11/12 lg:p-1/24 bg-white rounded shadow-2xl shadow-brand-main relative">
                 
-                    <h2 class="absolute top-4 left-4 z-10 pointer-events-none lg:pointer-events-auto lg:z-0 lg:top-0 lg:left-0 lg:relative mb-6 lg:mb-12 text-2xl lg:text-5xl font-semibold text-white lg:text-brand-<?php echo $cat_bg_colour; ?>">Speaker/Facilitator</h2>
+                    <h2 class="absolute top-4 left-4 z-10 pointer-events-none lg:pointer-events-auto lg:z-0 lg:top-0 lg:left-0 lg:relative mb-6 lg:mb-12 text-2xl lg:text-3xl 2xl:text-4xl font-semibold text-white lg:text-brand-<?php echo $cat_bg_colour; ?>">Speaker/Facilitator</h2>
 
                     <?php get_template_part('parts/_speaker_info'); ?>
 

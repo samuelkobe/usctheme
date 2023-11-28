@@ -42,7 +42,7 @@
 					<div class="w-full flex flex-col lg:flex-row my-8 lg:my-16">
 						<div class="w-full lg:w-5/12 mr-0 lg:mr-1/12 order-2 lg:order-1">
 							<p class="text-lg xl:text-2xl mb-1 xl:mb-2">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> All rights reserved.</p>
-							<p class="text-base"><?php _e('Powered by', 'web-ok-starter'); ?> Web Ok Solutions Inc.</p>
+							<?php _e('Powered by', 'web-ok-starter'); ?> <a href="https://webok.ca" target="_blank" class="hover:text-brand-main transition-colors duration-200 ">Web Ok Solutions Inc.</a>
 						</div>
 						<div class="w-full lg:w-5/12 ml-0 lg:ml-1/12 order-1 lg:order-2 mb-4 lg:mb-0">
 							<p class="text-lg xl:text-2xl mb-1 xl:mb-2">Get in touch: <a class="hover:text-brand-accent transition-colors duration-300" href="tel:<?php the_field( 'phone_number', 'option' ); ?>"><?php the_field( 'phone_number_text', 'option' ); ?></a> | <a class="hover:text-brand-accent transition-colors duration-300" href="mailto:<?php the_field( 'contact_email', 'option' ); ?>?subject=Inquiry from the <?php bloginfo('name'); ?> website" target="_blank"><?php the_field( 'contact_email', 'option' ); ?></a></p>

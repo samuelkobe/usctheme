@@ -186,6 +186,9 @@ function footer_scripts()
 
     wp_register_script('clipboard-copy', get_template_directory_uri() . '/js/clipboard.js', array(), '1.0.0'); // Conditional scripts
     wp_enqueue_script('clipboard-copy'); // Enqueue
+
+    wp_register_script('swiper', get_template_directory_uri() . '/js/swiper.js', array(), '1.0.0'); // Custom scripts
+    wp_enqueue_script('swiper'); // Enqueue
 }
 
 // Load styles

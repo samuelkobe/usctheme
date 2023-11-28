@@ -566,6 +566,43 @@
                     "min": "",
                     "max": ""
                 },
+                "layout_6329ef5a60703": {
+                    "key": "layout_6329ef5a60703",
+                    "name": "gallery_block",
+                    "label": "Gallery",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6329ef6260704",
+                            "label": "Gallery",
+                            "name": "gallery",
+                            "type": "gallery",
+                            "instructions": "Add images here by uploading from your computer or selecting existing images from the media library.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "array",
+                            "preview_size": "medium",
+                            "insert": "prepend",
+                            "library": "all",
+                            "min": 2,
+                            "max": 20,
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
                 "layout_61b7ef2c7f1ef": {
                     "key": "layout_61b7ef2c7f1ef",
                     "name": "individual_people_card",
@@ -1965,5 +2002,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1643834974
+    "modified": 1663693026
 }

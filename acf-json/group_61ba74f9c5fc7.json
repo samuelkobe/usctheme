@@ -6,6 +6,7 @@
             "key": "field_61c25c5004875",
             "label": "Hero",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,6 +23,7 @@
             "key": "field_61ba7b5c4e4cd",
             "label": "Service Hero",
             "name": "service_hero",
+            "aria-label": "",
             "type": "clone",
             "instructions": "",
             "required": 0,
@@ -43,6 +45,7 @@
             "key": "field_624f15c1235fd",
             "label": "Reminder",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -60,6 +63,7 @@
             "key": "field_61c25c5804876",
             "label": "Service details",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -76,25 +80,27 @@
             "key": "field_61baa2197f55e",
             "label": "Service description header",
             "name": "service_description_header",
+            "aria-label": "",
             "type": "text",
-            "instructions": "Add a header or title to the description of this service (Max 128 characters).",
+            "instructions": "Add a header title to the description. (Max 128 characters).",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "100",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
+            "maxlength": 128,
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "maxlength": 128
+            "append": ""
         },
         {
             "key": "field_61baa2597f55f",
             "label": "Service description",
             "name": "service_description_content",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "Add a information about the service here. This can be as long or short as you'd like.",
             "required": 1,
@@ -111,9 +117,232 @@
             "new_lines": "br"
         },
         {
+            "key": "field_6556884dd9cee",
+            "label": "Add a service cost?",
+            "name": "service_cost_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "<em>(optional)<\/em>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
+            "ui": 1
+        },
+        {
+            "key": "field_655664d2da999",
+            "label": "Service cost",
+            "name": "service_cost",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "<em>i.e. $25.00.<\/em>",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6556884dd9cee",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 8,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_655688902f845",
+            "label": "Service Cost Off",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6556884dd9cee",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "The service cost field is turned <strong>Off<\/strong>.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6556926360c66",
+            "label": "Add a service usual time?",
+            "name": "service_time_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "<em>(optional)<\/em>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
+            "ui": 1
+        },
+        {
+            "key": "field_6556926560c67",
+            "label": "Service time",
+            "name": "service_time",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "<em>7:30pm - 9:00pm<\/em>",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6556926360c66",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 24,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6556926960c68",
+            "label": "Service Time Off",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6556926360c66",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "The service time field is turned <strong>Off<\/strong>.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_6556904566f95",
+            "label": "Add a service location?",
+            "name": "service_location_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "<em>(optional)<\/em>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
+            "ui": 1
+        },
+        {
+            "key": "field_6556904466f94",
+            "label": "Service location",
+            "name": "service_location",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "<em>i.e. Port Coquitlam Community Centre.<\/em>",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6556904566f95",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 256,
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "br"
+        },
+        {
+            "key": "field_6556904366f93",
+            "label": "Service Location Off",
+            "name": "",
+            "aria-label": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6556904566f95",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "53",
+                "class": "",
+                "id": ""
+            },
+            "message": "The service location field is turned <strong>Off<\/strong>.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
             "key": "field_61f0504307bb7",
             "label": "Service description button?",
             "name": "service_description_button",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "Choose whether you would like to display a button after the Service description (optional).",
             "required": 0,
@@ -133,6 +362,7 @@
             "key": "field_61f0507d07bb8",
             "label": "Service button",
             "name": "service_button",
+            "aria-label": "",
             "type": "link",
             "instructions": "",
             "required": 1,
@@ -156,6 +386,7 @@
             "key": "field_61c2b6690c967",
             "label": "Upcoming events",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -172,6 +403,7 @@
             "key": "field_61c2b68b0c968",
             "label": "Show upcoming events?",
             "name": "upcoming_events_toggle",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "Turn on\/off upcoming events for this Service type. This should probably remain off for services like <b>Healing Requests<\/b>, <b>Spiritual Counselling<\/b>, and\/or <b>Mini Readings<\/b> as they can often be individual and\/or private. With Service types like <b>Sunday Mornings<\/b>, <b>Sunday Evenings<\/b>, <b>Friday Evenings<\/b>, and <b>Workshops<\/b> these can have their upcoming events turned on.",
             "required": 0,
@@ -191,6 +423,7 @@
             "key": "field_61c2b782b7177",
             "label": "Upcoming events off",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -216,6 +449,7 @@
             "key": "field_61c2b7f52a7b3",
             "label": "Upcoming events on",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -256,5 +490,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649350124
+    "modified": 1700198721
 }

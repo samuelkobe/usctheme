@@ -1,5 +1,3 @@
-
-
 <?php if ( get_sub_field( 'content_with_form' ) == 1 ) : ?>
 <section class="container mx-auto px-6 lg:px-0 my-4 xl:my-16">
     <div class="flex flex-col items-start lg:items-center w-full lg:w-5/6 lg:mx-1/12 2xl:w-2/3 2xl:mx-1/6 lg:mt-0 pt-4 lg:pt-16 border-t-2 border-grey-light object-reveal-long">

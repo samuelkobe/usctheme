@@ -6,6 +6,7 @@
             "key": "field_61c254d19255a",
             "label": "Event details",
             "name": "",
+            "aria-label": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,12 +23,13 @@
             "key": "field_61be4531bf7ed",
             "label": "Start date & time",
             "name": "start_date",
+            "aria-label": "",
             "type": "date_time_picker",
             "instructions": "<strong style=\"color: red;\">Remember to ensure that the start date & time is correct.<\/strong>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "49",
                 "class": "",
                 "id": ""
             },
@@ -39,12 +41,13 @@
             "key": "field_61be43c45f087",
             "label": "End date & time",
             "name": "end_date",
+            "aria-label": "",
             "type": "date_time_picker",
             "instructions": "<strong style=\"color: red;\">Remember to ensure that the end date & time is correct.<\/strong>",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "49",
                 "class": "",
                 "id": ""
             },
@@ -56,6 +59,7 @@
             "key": "field_61c39107090de",
             "label": "Location\/Correspondence Type",
             "name": "location",
+            "aria-label": "",
             "type": "select",
             "instructions": "Select the event's location.",
             "required": 1,
@@ -67,23 +71,25 @@
             },
             "choices": {
                 "zoom": "Online (via Zoom link)",
-                "usc": "Universal Spiritualist Centre",
+                "usc": "In Person Event",
                 "youtube": "Live on YouTube",
                 "booking": "Online Booking Request",
+                "workshop": "Workshop\/Classes Registration",
                 "tba": "Location TBA"
             },
             "default_value": "Online with Zoom",
-            "allow_null": 0,
+            "return_format": "array",
             "multiple": 0,
+            "allow_null": 0,
             "ui": 1,
             "ajax": 0,
-            "return_format": "array",
             "placeholder": ""
         },
         {
             "key": "field_61c25aff2f62d",
             "label": "Zoom registration link",
             "name": "zoom_registration_link",
+            "aria-label": "",
             "type": "url",
             "instructions": "This should be the link from Zoom.",
             "required": 1,
@@ -108,6 +114,7 @@
             "key": "field_61fd9ae6adbe3",
             "label": "Zoom Meeting ID",
             "name": "zoom_meeting_id",
+            "aria-label": "",
             "type": "number",
             "instructions": "Add the Zoom Meeting ID here.",
             "required": 1,
@@ -134,11 +141,12 @@
             "step": ""
         },
         {
-            "key": "field_61c3924a8528c",
-            "label": "Event at USC",
-            "name": "",
-            "type": "message",
-            "instructions": "",
+            "key": "field_655581c61edb2",
+            "label": "In Person Form",
+            "name": "in_person_form",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "This event is an in-person event.\r\n\r\nThe form is included automatically no other actions are required. Remember to include the location below in the <strong>More Content<\/strong> area.",
             "required": 0,
             "conditional_logic": [
                 [
@@ -154,14 +162,17 @@
                 "class": "",
                 "id": ""
             },
-            "message": "This event is at Universal Spiritualist Centre.",
-            "new_lines": "wpautop",
-            "esc_html": 0
+            "default_value": "[contact-form-7 id=\"3d8dc36\" title=\"In Person\"]",
+            "tabs": "text",
+            "media_upload": 0,
+            "toolbar": "full",
+            "delay": 0
         },
         {
             "key": "field_61c392768528d",
             "label": "YouTube Link",
             "name": "youtube_link",
+            "aria-label": "",
             "type": "url",
             "instructions": "This event will be held on YouTube live so you need to add a YouTube live link here.",
             "required": 1,
@@ -186,6 +197,7 @@
             "key": "field_623e128216ac2",
             "label": "Booking Request Information",
             "name": "booking_request_information",
+            "aria-label": "",
             "type": "text",
             "instructions": "Add any details the people should know when trying to book for this event. i.e. \"Click the 'Book Now' button to reserve your spot.\"",
             "required": 1,
@@ -213,6 +225,7 @@
             "key": "field_623e142836619",
             "label": "Booking Request Contact Email",
             "name": "booking_request_contact_email",
+            "aria-label": "",
             "type": "text",
             "instructions": "Add an email that bookings will go to here. i.e. \"usc@wttsw.com\"",
             "required": 1,
@@ -237,9 +250,66 @@
             "maxlength": 128
         },
         {
+            "key": "field_63e5392dbfa3d",
+            "label": "Workshop\/Classes Registration",
+            "name": "workshop_classes_registration",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Add any details the people should know when trying to book for this event. i.e. \"Click the 'Book Now' button to reserve your spot.\"",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61c39107090de",
+                        "operator": "==",
+                        "value": "workshop"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "45",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "To sign up, please click the button and email us your sign up request.",
+            "maxlength": 128,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_63e53898db6e0",
+            "label": "Workshop\/Classes Registration Email",
+            "name": "workshop_classes_registration_email",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Add an email that bookings will go to here. i.e. \"usc@wttsw.com\"",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_61c39107090de",
+                        "operator": "==",
+                        "value": "workshop"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "25",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": 128,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_61c392a78528e",
             "label": "Event location TBA",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -265,6 +335,7 @@
             "key": "field_61c263e73d8ae",
             "label": "Event image",
             "name": "event_image",
+            "aria-label": "",
             "type": "image",
             "instructions": "Add an image for the event.",
             "required": 1,
@@ -289,6 +360,7 @@
             "key": "field_61c25a7797db9",
             "label": "Event description",
             "name": "event_description",
+            "aria-label": "",
             "type": "textarea",
             "instructions": "This content is required and should be a short intro to the event type. This does not need to include details about the specific service or speaker and should focus more on the overall purpose of this stype of service. That being said, you can of course add anything you'd like here (Max 1500 characters).",
             "required": 1,
@@ -308,6 +380,7 @@
             "key": "field_61c253a80a318",
             "label": "More Content",
             "name": "content_row",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "Add groups of content in rows. Each row has a title and a content block that can be filled with paragraphs.",
             "required": 0,
@@ -322,11 +395,13 @@
             "max": 0,
             "layout": "row",
             "button_label": "Add Content",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_61c254380a319",
                     "label": "Title",
                     "name": "title",
+                    "aria-label": "",
                     "type": "text",
                     "instructions": "Add a content row title (Max characters 64).",
                     "required": 1,
@@ -340,12 +415,14 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": 64
+                    "maxlength": 64,
+                    "parent_repeater": "field_61c253a80a318"
                 },
                 {
                     "key": "field_61c254590a31a",
                     "label": "Content block",
                     "name": "content_block",
+                    "aria-label": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 1,
@@ -359,7 +436,8 @@
                     "placeholder": "",
                     "maxlength": "",
                     "rows": "",
-                    "new_lines": "br"
+                    "new_lines": "br",
+                    "parent_repeater": "field_61c253a80a318"
                 }
             ]
         },
@@ -367,6 +445,7 @@
             "key": "field_61c250d0c0917",
             "label": "Include Speaker\/Facilitator?",
             "name": "include_speaker_toggle?",
+            "aria-label": "",
             "type": "true_false",
             "instructions": "Should this event include information about a speaker\/facilitator?",
             "required": 0,
@@ -386,6 +465,7 @@
             "key": "field_61fb23941fcd9",
             "label": "Speakers",
             "name": "speakers",
+            "aria-label": "",
             "type": "repeater",
             "instructions": "Add up to 7 speakers for this event.",
             "required": 0,
@@ -408,11 +488,13 @@
             "max": 7,
             "layout": "block",
             "button_label": "Add speaker",
+            "rows_per_page": 20,
             "sub_fields": [
                 {
                     "key": "field_61facbadb74c6",
                     "label": "Selected Speaker",
                     "name": "selected_speaker",
+                    "aria-label": "",
                     "type": "post_object",
                     "instructions": "",
                     "required": 1,
@@ -437,7 +519,9 @@
                     "allow_null": 0,
                     "multiple": 0,
                     "return_format": "object",
-                    "ui": 1
+                    "ui": 1,
+                    "parent_repeater": "field_61fb23941fcd9",
+                    "bidirectional_target": []
                 }
             ]
         },
@@ -445,6 +529,7 @@
             "key": "field_61c251b073c02",
             "label": "No speaker information included",
             "name": "",
+            "aria-label": "",
             "type": "message",
             "instructions": "",
             "required": 0,
@@ -487,5 +572,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1649350031
+    "modified": 1700103430
 }

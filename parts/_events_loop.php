@@ -31,6 +31,9 @@
                     } elseif ($post_slug == 'mini-readings') {
                         $cat = 'mini-reading';
                         $cat_bg_colour = 'black';
+                    } elseif ($post_slug == 'in-person-events') {
+                        $cat = 'in-person';
+                        $cat_bg_colour = 'black';
                     }  else {
                         $cat = '';
                         $cat_bg_colour = 'black';
@@ -146,11 +149,13 @@
                                                 <?php if ($local_value == 'zoom') { ?>
                                                     <a class="<?php echo $button; ?>" href="<?php the_field( 'zoom_registration_link' ); ?>" target="_blank">Register Now</a>
                                                 <?php } elseif ($local_value == 'usc') { ?>
-                                                    <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to register for this event." target="_blank">Register Now</a>
+                                                    <a class="<?php echo $button; ?>" href="<?php the_permalink(); ?>#registration-form-tag">Registration Form</a>
                                                 <?php } elseif ($local_value == 'youtube') { ?>
                                                     <a class="button bg-red-600 mt-3 md:mt-6 mb-2" href="<?php the_field( 'youtube_link' ); ?>"  target="_blank">Watch on YouTube</a>
                                                 <?php } elseif ($local_value == 'booking') { ?>
-                                                    <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to book my spot for this event." target="_blank">Book Now</a>
+                                                    <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to book ​​my ​spot with the following ​(READER/MEDIUM) and (TIME)." target="_blank">Book Now</a>
+                                                <?php } elseif ($local_value == 'workshop') { ?>
+                                                    <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'workshop_classes_registration_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=​I am interested in signing up for your Workshop/Classes." target="_blank">Email Us to Sign Up</a>
                                                 <?php } elseif ($local_value == 'tba') { ?>
                                                     <a class="<?php echo $button; ?>" href="mailto:<?php the_field( 'booking_request_contact_email' ); ?>?subject=<?php the_title() ; ?>: <?php echo $displayed_date; ?>&body=I would like to register for this event." target="_blank">Register Now</a>
                                                 <?php } else { ?>
@@ -174,6 +179,11 @@
                                             </div>
                                         <?php endif; ?>
                                     </div>
+                                    <?php if ($local_value == 'booking') { ?>
+                                        <span class="text-sm mt-4"><?php the_field( 'booking_request_information' ); ?></span>
+                                    <?php } elseif ($local_value == 'workshop') { ?>
+                                        <span class="text-sm mt-4"><?php the_field( 'workshop_classes_registration' ); ?></span>
+                                    <?php } ?>
                                 </div>
                             </div>
 
